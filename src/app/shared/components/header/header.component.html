@@ -1,1 +1,18 @@
-<p>header works!</p>
+<header>
+  <a routerLink="/" class="brand">Dudley Orestil</a>
+
+  <nav aria-label="Navigation principale">
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+      Accueil
+    </a>
+    <a routerLink="/about" routerLinkActive="active">
+      Parcours
+    </a>
+    <a routerLink="/skills" routerLinkActive="active">
+      Compétences
+    </a>
+    <a routerLink="/portfolio" routerLinkActive="active">
+      Projets
+    </a>
+  </nav>
+</header>

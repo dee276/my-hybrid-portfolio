@@ -1,0 +1,32 @@
+header {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 24px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand {
+  color: #111827;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+nav a {
+  color: #4b5563;
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+
+nav a:hover,
+nav a.active {
+  color: #111827;
+}
