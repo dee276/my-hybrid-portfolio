@@ -15,9 +15,15 @@
     }
   </div>
 
+  @if (projectService.filteredProjects().length > 0) {
   <div class="project-list">
     @for (project of projectService.filteredProjects(); track project.id) {
       <app-project-card [project]="project" />
     }
   </div>
+} @else {
+  <p class="empty-state">
+    Aucun projet ne correspond à ce filtre pour l'instant.
+  </p>
+}
 </section>

@@ -1,6 +1,6 @@
 // src/app/core/services/project.service.ts
 import { Injectable, signal, computed } from '@angular/core';
-import { Project } from '../models/project.model';
+import { Project, ProjectFilter } from '../models/project.model';
 
 @Injectable({
   providedIn: 'root'
@@ -54,7 +54,7 @@ export class ProjectService {
   ]);
 
   // 2. État du filtre (public) : 'all' ou un quadrant spécifique ('data', 'software', etc.)
-  public selectedFilter = signal<string>('all');
+  public selectedFilter = signal<ProjectFilter>('all');
 
   // 3. État dérivé (synchrone et ultra-performant) : Projets filtrés automatiquement
   // En mode Zoneless, ce 'computed' recalculera la liste dès que 'selectedFilter' changera.
@@ -75,7 +75,7 @@ export class ProjectService {
    * Met à jour le filtre actif
    * @param filter Le nom du quadrant ou 'all'
    */
-  public updateFilter(filter: string): void {
+  public updateFilter(filter: ProjectFilter): void {
     this.selectedFilter.set(filter);
   }
 }

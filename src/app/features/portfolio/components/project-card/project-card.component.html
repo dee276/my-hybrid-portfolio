@@ -7,9 +7,28 @@
 
   <p class="description">{{ project().description }}</p>
 
-  <ul>
-    @for (tech of project().techStack; track tech) {
-      <li>{{ tech }}</li>
-    }
-  </ul>
+  <div class="section">
+    <h3>Technologies</h3>
+
+    <ul class="tech-list">
+      @for (tech of project().techStack; track tech) {
+        <li>{{ tech }}</li>
+      }
+    </ul>
+  </div>
+
+  <div class="section">
+    <h3>Points clés</h3>
+
+    <ul class="feature-list">
+      @for (feature of project().features; track feature) {
+        <li>{{ feature }}</li>
+      }
+    </ul>
+  </div>
+    @if (project().gitLink) {
+    <a class="project-link" [href]="project().gitLink" target="_blank" rel="noopener">
+      Voir le dépôt
+    </a>
+  }
 </article>

@@ -1,9 +1,8 @@
 import { Component, inject } from '@angular/core';
 
+import { ProjectFilter } from '../../core/models/project.model';
 import { ProjectService } from '../../core/services/project.service';
 import { ProjectCardComponent } from './components/project-card/project-card.component';
-
-type ProjectFilter = 'all' | 'data' | 'software' | 'devops' | 'hardware';
 
 @Component({
   selector: 'app-portfolio',

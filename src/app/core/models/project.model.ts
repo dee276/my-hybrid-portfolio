@@ -1,9 +1,13 @@
+export type ProjectQuadrant = 'data' | 'software' | 'devops' | 'hardware';
+
+export type ProjectFilter = 'all' | ProjectQuadrant;
+
 export interface Project {
   id: string;
   title: string;
   subtitle: string;
   description: string;
-  quadrant: 'data' | 'software' | 'devops' | 'hardware';
+  quadrant: ProjectQuadrant;
   techStack: string[];
   features: string[];
   gitLink?: string;
