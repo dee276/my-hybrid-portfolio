@@ -1,1 +1,15 @@
-<p>project-card works!</p>
+<article>
+  <p class="quadrant">{{ project().quadrant }}</p>
+
+  <h2>{{ project().title }}</h2>
+
+  <p class="subtitle">{{ project().subtitle }}</p>
+
+  <p class="description">{{ project().description }}</p>
+
+  <ul>
+    @for (tech of project().techStack; track tech) {
+      <li>{{ tech }}</li>
+    }
+  </ul>
+</article>

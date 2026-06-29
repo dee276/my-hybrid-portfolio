@@ -1,1 +1,23 @@
-<p>portfolio works!</p>
+<section class="portfolio">
+  <p class="eyebrow">Portfolio</p>
+
+  <h1>Projets-cadres</h1>
+
+  <div class="filters" aria-label="Filtres de projets">
+    @for (filter of filters; track filter.value) {
+      <button
+        type="button"
+        [class.active]="projectService.selectedFilter() === filter.value"
+        (click)="projectService.updateFilter(filter.value)"
+      >
+        {{ filter.label }}
+      </button>
+    }
+  </div>
+
+  <div class="project-list">
+    @for (project of projectService.filteredProjects(); track project.id) {
+      <app-project-card [project]="project" />
+    }
+  </div>
+</section>
