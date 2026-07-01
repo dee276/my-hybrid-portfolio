@@ -54,11 +54,11 @@ export class ProjectService {
   ]);
 
   // 2. État du filtre (public) : 'all' ou un quadrant spécifique ('data', 'software', etc.)
-  public selectedFilter = signal<ProjectFilter>('all');
+  readonly selectedFilter = signal<ProjectFilter>('all');
 
   // 3. État dérivé (synchrone et ultra-performant) : Projets filtrés automatiquement
   // En mode Zoneless, ce 'computed' recalculera la liste dès que 'selectedFilter' changera.
-  public filteredProjects = computed(() => {
+  readonly filteredProjects = computed(() => {
     const filter = this.selectedFilter();
     const allProjects = this.projectsList();
 
@@ -75,7 +75,7 @@ export class ProjectService {
    * Met à jour le filtre actif
    * @param filter Le nom du quadrant ou 'all'
    */
-  public updateFilter(filter: ProjectFilter): void {
+  updateFilter(filter: ProjectFilter): void {
     this.selectedFilter.set(filter);
   }
 }
