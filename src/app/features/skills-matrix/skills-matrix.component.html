@@ -1,1 +1,32 @@
-<p>skills-matrix works!</p>
+<section class="skills">
+  <p class="eyebrow">Matrice de compétences</p>
+
+  <h1>Quatre axes pour relier matériel, logiciel et données.</h1>
+
+  <div class="matrix">
+    @for (skillGroup of skillGroups; track skillGroup.id) {
+      <button
+        type="button"
+        [class.active]="selectedGroupId() === skillGroup.id"
+        (click)="selectGroup(skillGroup.id)"
+      >
+        <span class="label">{{ skillGroup.label }}</span>
+        <span class="title">{{ skillGroup.title }}</span>
+      </button>
+    }
+  </div>
+
+  @if (selectedGroup(); as group) {
+    <article class="details">
+      <p class="label">{{ group.label }}</p>
+      <h2>{{ group.title }}</h2>
+      <p>{{ group.description }}</p>
+
+      <ul>
+        @for (skill of group.skills; track skill) {
+          <li>{{ skill }}</li>
+        }
+      </ul>
+    </article>
+  }
+</section>
